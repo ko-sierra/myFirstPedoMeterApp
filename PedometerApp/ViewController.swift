@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func catchEvent(_ sender: UITextField) {
         Label2.text = sender.text
-    }
+    }                           
     
     // class wide constant !!
     let pedometer = CMPedometer()
@@ -77,6 +77,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // キーボードを閉じる
         view.endEditing(true)
     }
+    
+    //位置情報の変化を受け取る
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//    }
 
 
         
