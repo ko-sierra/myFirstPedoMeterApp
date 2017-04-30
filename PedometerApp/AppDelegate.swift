@@ -42,6 +42,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        //追加文
+        //5秒後に発火するようトリガーを設定
+        let trigger: UNNotificationTrigger
+        trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+        
+        //表示の設定
+        let content = UNMutableNotificationContent()
+        content.title = "あともう少しです　👏"
+        content.body = "頑張ってください"
+        content.sound = UNNotificationSound.default()
+        
+        // デフォルトの通知。画像などは設定しない
+        let request = UNNotificationRequest(identifier: "normal",
+                                            content: content,
+                                            trigger: trigger)
+        
+        //通知を予約
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+        //追加文
+        
+        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
